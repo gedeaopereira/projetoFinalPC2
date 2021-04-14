@@ -22,6 +22,12 @@ public class Veiculo {
         this.armas = new ArrayList<>();
     }
     
+        public Veiculo(String nome, String tipo, ArrayList<Armas> armas) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.armas = armas;
+    }
+    
     public void adicionarArmas() {
         
     }

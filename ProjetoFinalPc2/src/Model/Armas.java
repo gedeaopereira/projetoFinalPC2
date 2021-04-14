@@ -20,6 +20,11 @@ public class Armas {
         this.acessorios = new ArrayList<>();
         this.nome = nome;
     }
+    
+     public Armas(String nome, ArrayList<String> acessorios) {
+        this.acessorios = acessorios;
+        this.nome = nome;
+    }
 
     public void adicionarAcessorios(String nome) {
         acessorios.add(nome);

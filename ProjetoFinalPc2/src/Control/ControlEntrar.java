@@ -14,7 +14,6 @@ public class ControlEntrar {
         this.viewEntrar.setLocationRelativeTo(null);
     }
     
-    
     public void actionPerformed(ActionEvent e) {
         if("entrar".equals(e.getActionCommand())){
            viewEntrar.dispose();
