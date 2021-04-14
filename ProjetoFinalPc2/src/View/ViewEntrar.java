@@ -4,16 +4,27 @@
  * and open the template in the editor.
  */
 package View;
+
+import javax.swing.JTextField;
+
 /**
  *
  * @author vinic
  */
 public class ViewEntrar extends javax.swing.JFrame {
-
+  
     /** Creates new form Teste */
     public ViewEntrar() {
         initComponents();
 
+    }
+    
+    public JTextField getTxt_chave() {
+        return txt_chave;
+    }
+
+    public void setTxt_chave(JTextField txt_chave) {
+        this.txt_chave = txt_chave;
     }
 
     /** This method is called from within the constructor to
@@ -169,5 +180,7 @@ public class ViewEntrar extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txt_chave;
     // End of variables declaration//GEN-END:variables
+
+
 
 }
