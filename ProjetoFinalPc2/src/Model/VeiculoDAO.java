@@ -45,16 +45,18 @@ public class VeiculoDAO {
                             armas.add(arma);
                         }
                         if (nomeveiculo.contains(" armas: ")) {
-                                nomeveiculo = nomeveiculo.substring(0, nomeveiculo.indexOf(" armas: "));
-                                
-                            }
-                            Veiculo veiculo = new Veiculo(nomeveiculo,, armas);
-                            veiculos.add(veiculo);
+                            nomeveiculo = nomeveiculo.substring(0, nomeveiculo.indexOf(" Tipo: "));
+                            tipo = nomeveiculo.substring(nomeveiculo.indexOf(" tipo: "), nomeveiculo.indexOf(" armas: "));
+                        } else {
+                            tipo = nomeveiculo.substring(nomeveiculo.indexOf(" tipo: "), 0);
+                        }
+                        Veiculo veiculo = new Veiculo(nomeveiculo, tipo, armas);
+                        veiculos.add(veiculo);
                     }
                     linha = lerArq.readLine();
                 }
                 arq.close();
-                return armas;
+                return veiculos;
             } catch (IOException ex) {
                 throw ex;
 
@@ -64,19 +66,23 @@ public class VeiculoDAO {
         }
     }
 
-    public boolean cadastra(Armas arma) {
+    public boolean cadastra(Veiculo veiuclo) {
         try {
             FileWriter arq = new FileWriter(CAMINHO, true);
             PrintWriter gravarArq = new PrintWriter(arq);
-
-            String Texto = "";
-            if (arma.getAcessorios().size() > 0) {
-                Texto = " nome: " + arma.getNome();
-                for (String acessorio : arma.getAcessorios()) {
-                    Texto += " acessorio: " + acessorio;
+            String Texto = " veiculo: " + veiuclo.getNome();
+            Texto += " tipo: " + veiuclo.getTipo();
+            if (veiuclo.getArmas().size() > 0) {
+                for (Armas arma : veiuclo.getArmas()) {
+                    if (arma.getAcessorios().size() > 0) {
+                        Texto += " armas: " + arma.getNome();
+                        for (String acessorio : arma.getAcessorios()) {
+                            Texto += " acessorio: " + acessorio;
+                        }
+                    } else {
+                        Texto = " nome: " + arma.getNome();
+                    }
                 }
-            } else {
-                Texto = " nome: " + arma.getNome();
             }
 
             gravarArq.println(Texto);
@@ -125,7 +131,7 @@ public class VeiculoDAO {
 
         int nContatos = 0;
         try {
-            ArrayList<Armas> armasOld = ler();
+            ArrayList<Veiculo> armasOld = ler();
             FileWriter arq = new FileWriter(CAMINHO);
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {

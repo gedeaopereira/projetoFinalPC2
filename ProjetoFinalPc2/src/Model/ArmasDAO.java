@@ -59,9 +59,8 @@ public class ArmasDAO {
             FileWriter arq = new FileWriter(CAMINHO, true);
             PrintWriter gravarArq = new PrintWriter(arq);
 
-            String Texto = "";
+            String Texto = " nome: " + arma.getNome();
             if (arma.getAcessorios().size() > 0) {
-                Texto = " nome: " + arma.getNome();
                 for (String acessorio : arma.getAcessorios()) {
                     Texto += " acessorio: " + acessorio;
                 }
@@ -120,9 +119,8 @@ public class ArmasDAO {
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {
                 if (!(arma.getNome().equals(armaDel.getNome()))) {
-                    String Texto = "";
+                    String Texto = " nome: " + arma.getNome();
                     if (arma.getAcessorios().size() > 0) {
-                        Texto = " nome: " + arma.getNome();
                         for (String acessorio : arma.getAcessorios()) {
                             Texto += " acessorio: " + acessorio;
                         }
