@@ -12,6 +12,6 @@ package Control;
 public class Main {
 
     public static void main(String[] args) {
-        ControlInicio controlInicio = new ControlInicio();
+        ControlEntrar controlEntrar = new ControlEntrar();
     }
 }
