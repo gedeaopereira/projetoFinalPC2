@@ -16,13 +16,11 @@ public class Veiculo {
     private String tipo;
     private ArrayList<Armas> armas;
     
-
     public Veiculo(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
         this.armas = new ArrayList<>();
     }
-
     
     public void adicionarArmas() {
         
