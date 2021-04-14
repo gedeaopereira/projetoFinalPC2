@@ -66,21 +66,19 @@ public class VeiculoDAO {
         }
     }
 
-    public boolean cadastra(Veiculo veiuclo) {
+    public boolean cadastra(Veiculo veiculo) {
         try {
             FileWriter arq = new FileWriter(CAMINHO, true);
             PrintWriter gravarArq = new PrintWriter(arq);
-            String Texto = " veiculo: " + veiuclo.getNome();
-            Texto += " tipo: " + veiuclo.getTipo();
-            if (veiuclo.getArmas().size() > 0) {
-                for (Armas arma : veiuclo.getArmas()) {
+            String Texto = " veiculo: " + veiculo.getNome();
+            Texto += " tipo: " + veiculo.getTipo();
+            if (veiculo.getArmas().size() > 0) {
+                for (Armas arma : veiculo.getArmas()) {
+                    Texto += " armas: " + arma.getNome();
                     if (arma.getAcessorios().size() > 0) {
-                        Texto += " armas: " + arma.getNome();
                         for (String acessorio : arma.getAcessorios()) {
                             Texto += " acessorio: " + acessorio;
                         }
-                    } else {
-                        Texto = " nome: " + arma.getNome();
                     }
                 }
             }
@@ -95,62 +93,82 @@ public class VeiculoDAO {
 
     }
 
-    public String atualiza(Armas armaAtu) {
+    public String atualiza(Veiculo veiculoAtu) {
         int nContatos = 0;
         try {
-            ArrayList<Armas> armasOld = ler();
+            ArrayList<Veiculo> veiculoOld = ler();
             FileWriter arq = new FileWriter(CAMINHO);
             PrintWriter gravarArq = new PrintWriter(arq);
-            for (Armas arma : armasOld) {
-                if (!(arma.getNome().equals(armaAtu.getNome()))) {
-                    String Texto = "";
-                    if (arma.getAcessorios().size() > 0) {
-                        Texto = " nome: " + armaAtu.getNome();
-                        for (String acessorio : armaAtu.getAcessorios()) {
-                            Texto += " acessorio: " + acessorio;
+            for (Veiculo veiculo : veiculoOld) {
+                if (!(veiculo.getNome().equals(veiculoAtu.getNome()))) {
+                    String Texto = " veiculo: " + veiculo.getNome();
+                    Texto += " tipo: " + veiculo.getTipo();
+                    if (veiculo.getArmas().size() > 0) {
+                        for (Armas arma : veiculo.getArmas()) {
+                            Texto += " armas: " + arma.getNome();
+                            if (arma.getAcessorios().size() > 0) {
+                                for (String acessorio : arma.getAcessorios()) {
+                                    Texto += " acessorio: " + acessorio;
+                                }
+                            }
                         }
-                    } else {
-                        Texto = " nome: " + arma.getNome();
+                    }
+                    gravarArq.println(Texto);
+                    nContatos += 1;
+                } else {
+                    String Texto = " veiculo: " + veiculoAtu.getNome();
+                    Texto += " tipo: " + veiculoAtu.getTipo();
+                    if (veiculoAtu.getArmas().size() > 0) {
+                        for (Armas arma : veiculoAtu.getArmas()) {
+                            Texto += " armas: " + arma.getNome();
+                            if (arma.getAcessorios().size() > 0) {
+                                for (String acessorio : arma.getAcessorios()) {
+                                    Texto += " acessorio: " + acessorio;
+                                }
+                            }
+                        }
                     }
                     gravarArq.println(Texto);
                     nContatos += 1;
                 }
             }
             gravarArq.close();
-            if (nContatos == armasOld.size()) {
-                return "Esse Arma não existe!";
+            if (nContatos == veiculoOld.size()) {
+                return "Esse Veiculo não existe!";
             } else {
-                return "Arma Atualizada com sucesso!";
+                return "Veiculo Atualizado com sucesso!";
             }
         } catch (IOException e) {
-            return "Falha ao Atualizar Arma";
+            return "Falha ao Atualizar Veiculo";
         }
     }
 
-    public String deleta(Armas armaDel) {
-
+    public String deleta(Veiculo veiculoDel) {
         int nContatos = 0;
         try {
-            ArrayList<Veiculo> armasOld = ler();
+            ArrayList<Veiculo> veiculoOld = ler();
             FileWriter arq = new FileWriter(CAMINHO);
             PrintWriter gravarArq = new PrintWriter(arq);
-            for (Armas arma : armasOld) {
-                if (!(arma.getNome().equals(armaDel.getNome()))) {
-                    String Texto = "";
-                    if (arma.getAcessorios().size() > 0) {
-                        Texto = " nome: " + arma.getNome();
-                        for (String acessorio : arma.getAcessorios()) {
-                            Texto += " acessorio: " + acessorio;
+            for (Veiculo veiculo : veiculoOld) {
+                if (!(veiculo.getNome().equals(veiculoDel.getNome()))) {
+                    String Texto = " veiculo: " + veiculo.getNome();
+                    Texto += " tipo: " + veiculo.getTipo();
+                    if (veiculo.getArmas().size() > 0) {
+                        for (Armas arma : veiculo.getArmas()) {
+                            Texto += " armas: " + arma.getNome();
+                            if (arma.getAcessorios().size() > 0) {
+                                for (String acessorio : arma.getAcessorios()) {
+                                    Texto += " acessorio: " + acessorio;
+                                }
+                            }
                         }
-                    } else {
-                        Texto = " nome: " + arma.getNome();
                     }
                     gravarArq.println(Texto);
                     nContatos += 1;
                 }
             }
             gravarArq.close();
-            if (nContatos == armasOld.size()) {
+            if (nContatos == veiculoOld.size()) {
                 return "Esse Arma não existe!";
             } else {
                 return "Arma deletada com sucesso!";
