@@ -77,7 +77,7 @@ public class ArmasDAO {
         }
 
     }
-    
+
     public String atualiza(Armas armaAtu) {
         int nContatos = 0;
         try {
@@ -86,14 +86,20 @@ public class ArmasDAO {
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {
                 if (!(arma.getNome().equals(armaAtu.getNome()))) {
-                    String Texto = "";
+                    String Texto = " nome: " + arma.getNome();
                     if (arma.getAcessorios().size() > 0) {
-                        Texto = " nome: " + armaAtu.getNome();
+                        for (String acessorio : arma.getAcessorios()) {
+                            Texto += " acessorio: " + acessorio;
+                        }
+                    }
+                    gravarArq.println(Texto);
+                    nContatos += 1;
+                } else {
+                    String Texto = " nome: " + armaAtu.getNome();
+                    if (arma.getAcessorios().size() > 0) {
                         for (String acessorio : armaAtu.getAcessorios()) {
                             Texto += " acessorio: " + acessorio;
                         }
-                    } else {
-                        Texto = " nome: " + arma.getNome();
                     }
                     gravarArq.println(Texto);
                     nContatos += 1;
@@ -124,8 +130,6 @@ public class ArmasDAO {
                         for (String acessorio : arma.getAcessorios()) {
                             Texto += " acessorio: " + acessorio;
                         }
-                    } else {
-                        Texto = " nome: " + arma.getNome();
                     }
                     gravarArq.println(Texto);
                     nContatos += 1;
