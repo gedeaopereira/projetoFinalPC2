@@ -1,41 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author gedea
- */
 public class Veiculo {
+
     private String nome;
     private String tipo;
     private ArrayList<Armas> armas;
-    
+
     public Veiculo(String nome, String tipo) {
         this.nome = nome;
         this.tipo = tipo;
         this.armas = new ArrayList<>();
     }
-    
-        public Veiculo(String nome, String tipo, ArrayList<Armas> armas) {
+
+    public Veiculo(String nome, String tipo, ArrayList<Armas> armas) {
         this.nome = nome;
         this.tipo = tipo;
         this.armas = armas;
     }
-    
-    public void adicionarArmas() {
-        
+
+    public void adicionarArmas(Armas armas) {
+        this.armas.add(armas);
     }
 
-    public void removerArmas() {
-
+    public void removerArmas(String nome) {
+        for (int i = 0; i < armas.size(); i++) {
+            if (armas.get(i).getNome().equals(nome)) {
+                armas.remove(i);
+                break;
+            }
+        }
     }
-    
+
     public String getNome() {
         return nome;
     }
@@ -52,11 +49,11 @@ public class Veiculo {
         this.tipo = tipo;
     }
 
-    public  ArrayList<Armas> getArmas() {
+    public ArrayList<Armas> getArmas() {
         return armas;
     }
 
-    public void setArmas( ArrayList<Armas> armas) {
+    public void setArmas(ArrayList<Armas> armas) {
         this.armas = armas;
     }
 }

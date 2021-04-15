@@ -32,9 +32,9 @@ public class VeiculoDAO {
                 while (linha != null) {
                     ArrayList<Armas> armas = new ArrayList<>();
                     ArrayList<String> acessorios = new ArrayList<>();
-                    for (String nomeveiculo : linha.split(" veiculo: ")) {
+                    for (String nomeVeiculo : linha.split(" veiculo: ")) {
                         String tipo = "";
-                        for (String nomeArma : nomeveiculo.split(" armas: ")) {
+                        for (String nomeArma : nomeVeiculo.split(" armas: ")) {
                             for (String acessorio : nomeArma.split(" acessorio: ")) {
                                 acessorios.add(acessorio);
                             }
@@ -44,14 +44,67 @@ public class VeiculoDAO {
                             Armas arma = new Armas(nomeArma, acessorios);
                             armas.add(arma);
                         }
-                        if (nomeveiculo.contains(" armas: ")) {
-                            nomeveiculo = nomeveiculo.substring(0, nomeveiculo.indexOf(" Tipo: "));
-                            tipo = nomeveiculo.substring(nomeveiculo.indexOf(" tipo: "), nomeveiculo.indexOf(" armas: "));
+                        if (nomeVeiculo.contains(" armas: ")) {
+                            nomeVeiculo = nomeVeiculo.substring(0, nomeVeiculo.indexOf(" Tipo: "));
+                            tipo = nomeVeiculo.substring(nomeVeiculo.indexOf(" tipo: "), nomeVeiculo.indexOf(" armas: "));
                         } else {
-                            tipo = nomeveiculo.substring(nomeveiculo.indexOf(" tipo: "), 0);
+                            tipo = nomeVeiculo.substring(nomeVeiculo.indexOf(" tipo: "), 0);
                         }
-                        Veiculo veiculo = new Veiculo(nomeveiculo, tipo, armas);
+                        Veiculo veiculo = new Veiculo(nomeVeiculo, tipo, armas);
                         veiculos.add(veiculo);
+                    }
+                    linha = lerArq.readLine();
+                }
+                arq.close();
+                return veiculos;
+            } catch (IOException ex) {
+                throw ex;
+
+            }
+        } catch (FileNotFoundException ex) {
+            throw ex;
+        }
+    }
+
+    public ArrayList<Veiculo> ler(String busca) throws IOException, FileNotFoundException {
+        ArrayList<Veiculo> veiculos = new ArrayList();
+        try {
+            FileReader arq = new FileReader(CAMINHO);
+            BufferedReader lerArq = new BufferedReader(arq);
+            String linha = "";
+            try {
+                linha = lerArq.readLine();
+                while (linha != null) {
+                    ArrayList<Armas> armas = new ArrayList<>();
+                    ArrayList<String> acessorios = new ArrayList<>();
+                    for (String nomeVeiculo : linha.split(" veiculo: ")) {
+                        String tipo = "";
+                        for (String nomeArma : nomeVeiculo.split(" armas: ")) {
+                            for (String acessorio : nomeArma.split(" acessorio: ")) {
+                                acessorios.add(acessorio);
+                            }
+                            if (nomeArma.contains(" acessorio: ")) {
+                                nomeArma = nomeArma.substring(0, nomeArma.indexOf(" acessorio: "));
+                            }
+                            Armas arma = new Armas(nomeArma, acessorios);
+                            armas.add(arma);
+                        }
+                        if (nomeVeiculo.contains(" armas: ")) {
+                            nomeVeiculo = nomeVeiculo.substring(0, nomeVeiculo.indexOf(" Tipo: "));
+                            tipo = nomeVeiculo.substring(nomeVeiculo.indexOf(" tipo: "), nomeVeiculo.indexOf(" armas: "));
+                            if (nomeVeiculo.contains(busca)) {
+                                Veiculo veiculo = new Veiculo(nomeVeiculo, tipo, armas);
+                                veiculos.add(veiculo);
+                            }
+                        } else {
+                            tipo = nomeVeiculo.substring(nomeVeiculo.indexOf(" tipo: "), 0);
+                            if (nomeVeiculo.contains(busca)) {
+                                Veiculo veiculo = new Veiculo(nomeVeiculo, tipo, armas);
+                                veiculos.add(veiculo);
+                            }
+
+                        }
+
                     }
                     linha = lerArq.readLine();
                 }
@@ -169,12 +222,12 @@ public class VeiculoDAO {
             }
             gravarArq.close();
             if (nContatos == veiculoOld.size()) {
-                return "Esse Arma não existe!";
+                return "Esse Veiculo não existe!";
             } else {
-                return "Arma deletada com sucesso!";
+                return "Veiculo deletado com sucesso!";
             }
         } catch (IOException e) {
-            return "Falha ao deletar Arma";
+            return "Falha ao deletar Veiculo";
         }
     }
 }
