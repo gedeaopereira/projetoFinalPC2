@@ -5,6 +5,7 @@
  */
 package View;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 /**
@@ -16,7 +17,7 @@ public class ViewEntrar extends javax.swing.JFrame {
     /** Creates new form Teste */
     public ViewEntrar() {
         initComponents();
-
+        
     }
     
     public JTextField getTxt_chave() {
@@ -26,6 +27,16 @@ public class ViewEntrar extends javax.swing.JFrame {
     public void setTxt_chave(JTextField txt_chave) {
         this.txt_chave = txt_chave;
     }
+
+    public JButton getBtn_entrar() {
+        return btn_entrar;
+    }
+
+    public void setBtn_entrar(JButton btn_entrar) {
+        this.btn_entrar = btn_entrar;
+    }
+    
+    
 
     /** This method is called from within the constructor to
      * initialize the form.
@@ -43,6 +54,8 @@ public class ViewEntrar extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txt_chave = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,6 +76,13 @@ public class ViewEntrar extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/batman.png"))); // NOI18N
 
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -81,7 +101,8 @@ public class ViewEntrar extends javax.swing.JFrame {
                                 .addGap(103, 103, 103))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(156, 156, 156))))
+                                .addGap(156, 156, 156)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(65, 65, 65))))
@@ -93,7 +114,9 @@ public class ViewEntrar extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(txt_chave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -176,8 +199,10 @@ public class ViewEntrar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txt_chave;
     // End of variables declaration//GEN-END:variables
 

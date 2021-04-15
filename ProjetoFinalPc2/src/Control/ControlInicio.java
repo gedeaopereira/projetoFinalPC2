@@ -2,7 +2,6 @@ package Control;
 
 import View.ViewInicio;
 
-
 public class ControlInicio {
 
     private ViewInicio viewInicio;
