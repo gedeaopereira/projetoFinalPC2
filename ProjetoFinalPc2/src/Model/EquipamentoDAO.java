@@ -22,8 +22,6 @@ public class EquipamentoDAO {
         }
     }
     
-    
-
     public ArrayList<Equipamento> ler() throws IOException, FileNotFoundException {
         ArrayList<Equipamento> trajes = new ArrayList();
         try {
@@ -36,10 +34,12 @@ public class EquipamentoDAO {
                     ArrayList<Armas> armas = new ArrayList<>();
                     ArrayList<String> acessorios = new ArrayList<>();
                     for (String equip : linha.split(" equip: ")) {
-                        String membro = "";
+                        if(!equip.equals(" ")){
                         for (String nomeArma : equip.split(" armas: ")) {
                             for (String acessorio : nomeArma.split(" acessorio: ")) {
+                                if(!acessorio.equals(" ")){
                                 acessorios.add(acessorio);
+                                }
                             }
                             if (nomeArma.contains(" acessorio: ")) {
                                 nomeArma = nomeArma.substring(0, nomeArma.indexOf(" acessorio: "));
@@ -55,6 +55,7 @@ public class EquipamentoDAO {
                         }
                         Equipamento traje = new Equipamento(equip, membro, armas);
                         trajes.add(traje);
+                        }
                     }
                     linha = lerArq.readLine();
                 }

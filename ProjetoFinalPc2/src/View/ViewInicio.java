@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -51,6 +52,14 @@ public class ViewInicio extends javax.swing.JFrame {
 
     public void setBtn_sair(JButton btn_sair) {
         this.btn_sair = btn_sair;
+    }
+
+    public JLabel getTxt_alerta() {
+        return txt_alerta;
+    }
+
+    public void setTxt_alerta(JLabel txt_alerta) {
+        this.txt_alerta = txt_alerta;
     }
     
 

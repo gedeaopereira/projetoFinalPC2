@@ -3,10 +3,13 @@ package Control;
 import View.ViewInicio;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class ControlInicio implements ActionListener {
 
     private ViewInicio viewInicio;
+    private ArrayList<String> crimes;
 
     public ControlInicio() {
         this.viewInicio = new ViewInicio();
@@ -16,6 +19,8 @@ public class ControlInicio implements ActionListener {
         this.viewInicio.getBtn_armas().addActionListener(this);
         this.viewInicio.getBtn_batmovel().addActionListener(this);
         this.viewInicio.getBtn_sair().addActionListener(this);
+        this.crimes = new ArrayList<>();
+        adicionarCrimes();
     }
 
     @Override
@@ -33,6 +38,25 @@ public class ControlInicio implements ActionListener {
             viewInicio.dispose();
             System.exit(0);
         }
+    }
+    private void adicionarCrimes(){
+        Random gerador = new Random();
+        int aleatorio = gerador.nextInt(13);
+        
+        this.crimes.add("O Coringa sequestrões dois navios, e está ameaçando explodir");
+        this.crimes.add("O Espantalho criou um novo gás tóxico");
+        this.crimes.add("O Pinguim está planejando junto com outros vilões a fulga da prisão");
+        this.crimes.add("O Charada está espalhando suas pegadinhas pela cidade");
+        this.crimes.add("A Mulher Gato deseja ter um encontro amigável");
+        this.crimes.add("O Detetive Gordon está em apuros, em uma briga de gangue");
+        this.crimes.add("O Robin enlouqueceu, e está querendo sequelar o Coringa");
+        this.crimes.add("O Duas Caras está prestes a botar fogo em um hotel");
+        this.crimes.add("O Bayne fugiu da prisão e está devastando a cidade");
+        this.crimes.add("Nova reunião da Liga da Justiça");
+        this.crimes.add("Flash está sendo coagido a trabalhar de garçom");
+        this.crimes.add("O salário do Alfred está atrasado");
+        
+        this.viewInicio.getTxt_alerta().setText(this.crimes.get(aleatorio));
     }
 
 }

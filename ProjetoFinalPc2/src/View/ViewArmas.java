@@ -147,6 +147,7 @@ public class ViewArmas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        txt_editar = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -204,6 +205,9 @@ public class ViewArmas extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BATarangue (1).png"))); // NOI18N
 
+        txt_editar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txt_editar.setText("Editar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -238,6 +242,8 @@ public class ViewArmas extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_excluirArma)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txt_editar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(16, 16, 16))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -285,7 +291,8 @@ public class ViewArmas extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_excluirArma)
-                            .addComponent(btn_novo))
+                            .addComponent(btn_novo)
+                            .addComponent(txt_editar))
                         .addContainerGap())))
         );
 
@@ -396,6 +403,7 @@ public class ViewArmas extends javax.swing.JFrame {
     private javax.swing.JList<String> list_acessorios;
     private javax.swing.JList<String> list_armas;
     private javax.swing.JTextField txt_buscar;
+    private javax.swing.JButton txt_editar;
     private javax.swing.JTextField txt_equipamentoArma;
     private javax.swing.JTextField txt_nomeArma;
     // End of variables declaration//GEN-END:variables
