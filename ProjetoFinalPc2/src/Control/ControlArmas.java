@@ -1,16 +1,28 @@
 package Control;
 
 import View.ViewArmas;
+import Model.Armas;
+import Model.ArmasDAO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JList;
 
 public class ControlArmas implements ActionListener {
 
     private ViewArmas viewArmas;
 
-    public ControlArmas() {
+    public ControlArmas() throws IOException {
         this.viewArmas = new ViewArmas();
         this.viewArmas.setVisible(true);
+        ArmasDAO armasDAO = new ArmasDAO();
+        ArrayList<String> armas = new ArrayList<>();
+        for (Armas arma : armasDAO.ler()) {
+            armas.add(arma.getNome());
+        }
+        JList list = new JList(armas.toArray());
+        this.viewArmas.getList_armas().add(list);
         viewArmas.setLocationRelativeTo(null);
         viewArmas.getBtn_adicionarAcessorio().addActionListener(this);
         viewArmas.getBtn_buscar().addActionListener(this);
@@ -19,7 +31,6 @@ public class ControlArmas implements ActionListener {
         viewArmas.getBtn_excluirArma().addActionListener(this);
         viewArmas.getBtn_salvar().addActionListener(this);
         viewArmas.getBtn_voltar().addActionListener(this);
-
     }
 
     @Override

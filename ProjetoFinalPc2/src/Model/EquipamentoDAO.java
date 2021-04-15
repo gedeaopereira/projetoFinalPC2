@@ -7,10 +7,22 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class EquipamentoDAO {
 
     private final String CAMINHO = "Traje";
+
+    public EquipamentoDAO() {
+        try {
+            FileWriter arq = new FileWriter(CAMINHO, true);
+        } catch (IOException ex) {
+            System.out.println("Erro ao caregar arquivo");
+        }
+    }
+    
+    
 
     public ArrayList<Equipamento> ler() throws IOException, FileNotFoundException {
         ArrayList<Equipamento> trajes = new ArrayList();
