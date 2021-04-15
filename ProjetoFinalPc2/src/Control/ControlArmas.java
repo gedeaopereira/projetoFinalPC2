@@ -13,18 +13,18 @@ import javax.swing.JList;
 public class ControlArmas implements ActionListener {
 
     private ViewArmas viewArmas;
+    private DefaultListModel listArmas;
+    private DefaultListModel listAcessorios;
 
     public ControlArmas() throws IOException {
         this.viewArmas = new ViewArmas();
         this.viewArmas.setVisible(true);
         ArmasDAO armasDAO = new ArmasDAO();
-        ArrayList<String> armas = new ArrayList<>();
+        listArmas = new DefaultListModel();
         for (Armas arma : armasDAO.ler()) {
-            armas.add(arma.getNome());
+            listArmas.addElement(arma.getNome());
         }
-        DefaultListModel listModel = new DefaultListModel();
-        listModel.addElement(armas);
-        this.viewArmas.getList_armas().setModel(listModel);
+        this.viewArmas.getList_armas().setModel(listArmas);
         viewArmas.setLocationRelativeTo(null);
         viewArmas.getBtn_adicionarAcessorio().addActionListener(this);
         viewArmas.getBtn_buscar().addActionListener(this);
@@ -50,8 +50,7 @@ public class ControlArmas implements ActionListener {
             ControlArmas controlArmas = new ControlArmas();
             this.viewArmas.dispose();
         } else if ("excluirArma".equals(e.getActionCommand())) {
-            ControlArmas controlArmas = new ControlArmas();
-            this.viewArmas.dispose();
+            listArmas.remove(this.viewArmas.getList_armas().getSelectedIndex());
         } else if ("salvar".equals(e.getActionCommand())) {
             viewArmas.dispose();
             System.exit(0);
