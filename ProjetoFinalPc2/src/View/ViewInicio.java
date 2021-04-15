@@ -6,6 +6,7 @@
 package View;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 
 /**
  *
@@ -51,6 +52,14 @@ public class ViewInicio extends javax.swing.JFrame {
 
     public void setBtn_sair(JButton btn_sair) {
         this.btn_sair = btn_sair;
+    }
+
+    public JLabel getTxt_alerta() {
+        return txt_alerta;
+    }
+
+    public void setTxt_alerta(JLabel txt_alerta) {
+        this.txt_alerta = txt_alerta;
     }
     
 
@@ -212,21 +221,18 @@ public class ViewInicio extends javax.swing.JFrame {
 
         txt_alerta.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         txt_alerta.setForeground(new java.awt.Color(255, 255, 0));
+        txt_alerta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_alerta.setText("TEXTO DE ALERTA!");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(152, 152, 152)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(137, 137, 137)
-                        .addComponent(txt_alerta)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(txt_alerta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,10 +241,12 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_alerta)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btn_sair.setBackground(new java.awt.Color(204, 0, 0));
+        txt_alerta.getAccessibleContext().setAccessibleName("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+        btn_sair.setBackground(new java.awt.Color(255, 102, 102));
         btn_sair.setForeground(new java.awt.Color(204, 0, 51));
         btn_sair.setText("SAIR DA CAVERNA");
         btn_sair.setActionCommand("sair");
@@ -248,7 +256,7 @@ public class ViewInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_batmovel.setBackground(new java.awt.Color(0, 0, 102));
+        btn_batmovel.setBackground(new java.awt.Color(102, 102, 255));
         btn_batmovel.setForeground(new java.awt.Color(0, 0, 102));
         btn_batmovel.setText("CHAMAR BATMÓVEL PARA MISSÂO");
         btn_batmovel.setActionCommand("batmovel");
@@ -280,7 +288,7 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_batmovel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_sair))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
