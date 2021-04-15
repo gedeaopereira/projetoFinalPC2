@@ -5,6 +5,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.JOptionPane;
+import java.io.File;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class ControlInicio implements ActionListener {
 
@@ -29,23 +34,31 @@ public class ControlInicio implements ActionListener {
             ControlTraje controlTraje = new ControlTraje();
             this.viewInicio.dispose();
         } else if ("armas".equals(e.getActionCommand())) {
-            ControlArmas controlArmas = new ControlArmas();
+            // ControlArmas controlArmas = new ControlArmas();
             this.viewInicio.dispose();
         } else if ("batmovel".equals(e.getActionCommand())) {
-            viewInicio.dispose();
-            System.exit(0);
+            try {
+                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sons/batmovel.wav").getAbsoluteFile());
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInputStream);
+                clip.start();
+            } catch (Exception ex) {
+                System.out.println("Erro ao executar SOM!" + ex);
+            }
+            JOptionPane.showMessageDialog(viewInicio, "O batmóvel está pronto para ação!!");
         } else if ("sair".equals(e.getActionCommand())) {
             viewInicio.dispose();
             System.exit(0);
         }
     }
-    private void adicionarCrimes(){
+
+    private void adicionarCrimes() {
         Random gerador = new Random();
         int aleatorio = gerador.nextInt(13);
-        
-        this.crimes.add("O Coringa sequestrões dois navios, e está ameaçando explodir");
+
+        this.crimes.add("O Coringa sequestrou dois navios, e está ameaçando explodir");
         this.crimes.add("O Espantalho criou um novo gás tóxico");
-        this.crimes.add("O Pinguim está planejando junto com outros vilões a fulga da prisão");
+        this.crimes.add("O Pinguim está planejando a fulga da prisão");
         this.crimes.add("O Charada está espalhando suas pegadinhas pela cidade");
         this.crimes.add("A Mulher Gato deseja ter um encontro amigável");
         this.crimes.add("O Detetive Gordon está em apuros, em uma briga de gangue");
@@ -55,7 +68,7 @@ public class ControlInicio implements ActionListener {
         this.crimes.add("Nova reunião da Liga da Justiça");
         this.crimes.add("Flash está sendo coagido a trabalhar de garçom");
         this.crimes.add("O salário do Alfred está atrasado");
-        
+
         this.viewInicio.getTxt_alerta().setText(this.crimes.get(aleatorio));
     }
 

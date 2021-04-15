@@ -49,12 +49,12 @@ public class EquipamentoDAO {
                         }
                         if (equip.contains(" armas: ")) {
                             equip = equip.substring(0, equip.indexOf(" membro: "));
-                            membro = equip.substring(equip.indexOf(" membro: "), equip.indexOf(" armas: "));
+                         //   membro = equip.substring(equip.indexOf(" membro: "), equip.indexOf(" armas: "));
                         } else {
-                            membro = equip.substring(equip.indexOf(" membro: "), 0);
+                         //   membro = equip.substring(equip.indexOf(" membro: "), 0);
                         }
-                        Equipamento traje = new Equipamento(equip, membro, armas);
-                        trajes.add(traje);
+                       // Equipamento traje = new Equipamento(equip, membro, armas);
+                      //  trajes.add(traje);
                         }
                     }
                     linha = lerArq.readLine();
