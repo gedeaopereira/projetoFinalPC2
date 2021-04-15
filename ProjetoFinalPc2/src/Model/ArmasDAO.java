@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.io.BufferedReader;
@@ -13,10 +8,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-/**
- *
- * @author gedea
- */
 public class ArmasDAO {
 
     private final String CAMINHO = "Armas";
@@ -40,6 +31,45 @@ public class ArmasDAO {
                         }
                         Armas arma = new Armas(nome, acessorios);
                         armas.add(arma);
+                    }
+                    linha = lerArq.readLine();
+                }
+                arq.close();
+                return armas;
+            } catch (IOException ex) {
+                throw ex;
+
+            }
+        } catch (FileNotFoundException ex) {
+            throw ex;
+        }
+    }
+
+    public ArrayList<Armas> ler(String busca) throws IOException, FileNotFoundException {
+        ArrayList<Armas> armas = new ArrayList();
+        try {
+            FileReader arq = new FileReader(CAMINHO);
+            BufferedReader lerArq = new BufferedReader(arq);
+            String linha = "";
+            try {
+                linha = lerArq.readLine();
+                while (linha != null) {
+                    ArrayList<String> acessorios = new ArrayList<>();
+                    for (String nome : linha.split(" nome: ")) {
+                        for (String acessorio : nome.split(" acessorio: ")) {
+                            acessorios.add(acessorio);
+                        }
+                        if (nome.contains(" acessorio: ")) {
+                            nome = nome.substring(0, nome.indexOf(" acessorio: "));
+                            if (nome.contains(busca)) {
+                                Armas arma = new Armas(nome, acessorios);
+                                armas.add(arma);
+                            }
+                        } else if (nome.contains(busca))  {
+                            Armas arma = new Armas(nome, acessorios);
+                            armas.add(arma);
+                        }
+
                     }
                     linha = lerArq.readLine();
                 }
