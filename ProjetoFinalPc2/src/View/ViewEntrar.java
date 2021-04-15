@@ -5,6 +5,7 @@
  */
 package View;
 
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 /**
@@ -18,14 +19,16 @@ public class ViewEntrar extends javax.swing.JFrame {
         initComponents();
 
     }
-    
-    public JTextField getTxt_chave() {
+
+    public JPasswordField getTxt_chave() {
         return txt_chave;
     }
 
-    public void setTxt_chave(JTextField txt_chave) {
+    public void setTxt_chave(JPasswordField txt_chave) {
         this.txt_chave = txt_chave;
     }
+    
+  
 
     /** This method is called from within the constructor to
      * initialize the form.
