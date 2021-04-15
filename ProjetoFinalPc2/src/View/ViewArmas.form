@@ -227,6 +227,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="+"/>
+                <Property name="actionCommand" type="java.lang.String" value="adicionarAcessorio"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_excluirAcessorio">
@@ -235,6 +236,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="actionCommand" type="java.lang.String" value="excluirAcessorio"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_salvar">
@@ -243,6 +245,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
+                <Property name="actionCommand" type="java.lang.String" value="salvar"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -270,6 +273,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Excluir"/>
+                <Property name="actionCommand" type="java.lang.String" value="excluirArma"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txt_buscar">
@@ -280,6 +284,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="actionCommand" type="java.lang.String" value="buscar"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_novo">
@@ -288,6 +293,7 @@
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Novo"/>
+                <Property name="actionCommand" type="java.lang.String" value="novo"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -331,6 +337,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&lt;----"/>
+            <Property name="actionCommand" type="java.lang.String" value="voltar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_voltarActionPerformed"/>

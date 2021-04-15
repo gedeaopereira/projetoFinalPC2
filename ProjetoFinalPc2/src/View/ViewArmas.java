@@ -169,23 +169,29 @@ public class ViewArmas extends javax.swing.JFrame {
 
         btn_adicionarAcessorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_adicionarAcessorio.setText("+");
+        btn_adicionarAcessorio.setActionCommand("adicionarAcessorio");
 
         btn_excluirAcessorio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirAcessorio.setText("Excluir");
+        btn_excluirAcessorio.setActionCommand("excluirAcessorio");
 
         btn_salvar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_salvar.setText("Salvar");
+        btn_salvar.setActionCommand("salvar");
 
         jScrollPane2.setViewportView(list_armas);
 
         btn_excluirArma.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_excluirArma.setText("Excluir");
+        btn_excluirArma.setActionCommand("excluirArma");
 
         btn_buscar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_buscar.setText("Buscar");
+        btn_buscar.setActionCommand("buscar");
 
         btn_novo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_novo.setText("Novo");
+        btn_novo.setActionCommand("novo");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Nome da arma:");
@@ -285,6 +291,7 @@ public class ViewArmas extends javax.swing.JFrame {
 
         btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_voltar.setText("<----");
+        btn_voltar.setActionCommand("voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_voltarActionPerformed(evt);
