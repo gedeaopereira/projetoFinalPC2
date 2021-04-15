@@ -5,6 +5,10 @@
  */
 package View;
 
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JTextField;
+
 /**
  *
  * @author vinic
@@ -18,6 +22,102 @@ public class ViewArmas extends javax.swing.JFrame {
         initComponents();
     }
 
+    public JButton getBtn_adicionarAcessorio() {
+        return btn_adicionarAcessorio;
+    }
+
+    public void setBtn_adicionarAcessorio(JButton btn_adicionarAcessorio) {
+        this.btn_adicionarAcessorio = btn_adicionarAcessorio;
+    }
+
+    public JButton getBtn_buscar() {
+        return btn_buscar;
+    }
+
+    public void setBtn_buscar(JButton btn_buscar) {
+        this.btn_buscar = btn_buscar;
+    }
+
+    public JButton getBtn_excluirAcessorio() {
+        return btn_excluirAcessorio;
+    }
+
+    public void setBtn_excluirAcessorio(JButton btn_excluirAcessorio) {
+        this.btn_excluirAcessorio = btn_excluirAcessorio;
+    }
+
+    public JButton getBtn_excluirArma() {
+        return btn_excluirArma;
+    }
+
+    public void setBtn_excluirArma(JButton btn_excluirArma) {
+        this.btn_excluirArma = btn_excluirArma;
+    }
+
+    public JButton getBtn_novo() {
+        return btn_novo;
+    }
+
+    public void setBtn_novo(JButton btn_novo) {
+        this.btn_novo = btn_novo;
+    }
+
+    public JButton getBtn_salvar() {
+        return btn_salvar;
+    }
+
+    public void setBtn_salvar(JButton btn_salvar) {
+        this.btn_salvar = btn_salvar;
+    }
+
+    public JButton getBtn_voltar() {
+        return btn_voltar;
+    }
+
+    public void setBtn_voltar(JButton btn_voltar) {
+        this.btn_voltar = btn_voltar;
+    }
+
+    public JList<String> getList_acessorios() {
+        return list_acessorios;
+    }
+
+    public void setList_acessorios(JList<String> list_acessorios) {
+        this.list_acessorios = list_acessorios;
+    }
+
+    public JList<String> getList_armas() {
+        return list_armas;
+    }
+
+    public void setList_armas(JList<String> list_armas) {
+        this.list_armas = list_armas;
+    }
+
+    public JTextField getTxt_buscar() {
+        return txt_buscar;
+    }
+
+    public void setTxt_buscar(JTextField txt_buscar) {
+        this.txt_buscar = txt_buscar;
+    }
+
+    public JTextField getTxt_equipamentoArma() {
+        return txt_equipamentoArma;
+    }
+
+    public void setTxt_equipamentoArma(JTextField txt_equipamentoArma) {
+        this.txt_equipamentoArma = txt_equipamentoArma;
+    }
+
+    public JTextField getTxt_nomeArma() {
+        return txt_nomeArma;
+    }
+
+    public void setTxt_nomeArma(JTextField txt_nomeArma) {
+        this.txt_nomeArma = txt_nomeArma;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
