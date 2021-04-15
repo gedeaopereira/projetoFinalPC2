@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author gedea
@@ -17,6 +19,40 @@ public class ViewInicio extends javax.swing.JFrame {
     public ViewInicio() {
         initComponents();
     }
+
+    public JButton getBtn_trajes() {
+        return btn_trajes;
+    }
+
+    public void setBtn_trajes(JButton btn_trajes) {
+        this.btn_trajes = btn_trajes;
+    }
+
+
+    public JButton getBtn_armas() {
+        return btn_armas;
+    }
+
+    public void setBtn_armas(JButton btn_armas) {
+        this.btn_armas = btn_armas;
+    }
+
+    public JButton getBtn_batmovel() {
+        return btn_batmovel;
+    }
+
+    public void setBtn_batmovel(JButton btn_batmovel) {
+        this.btn_batmovel = btn_batmovel;
+    }
+
+    public JButton getBtn_sair() {
+        return btn_sair;
+    }
+
+    public void setBtn_sair(JButton btn_sair) {
+        this.btn_sair = btn_sair;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,14 +70,14 @@ public class ViewInicio extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_armas = new javax.swing.JButton();
+        btn_trajes = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txt_alerta = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btn_sair = new javax.swing.JButton();
+        btn_batmovel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -90,17 +126,19 @@ public class ViewInicio extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(204, 204, 204));
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
 
-        jButton1.setText("BATarmas");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btn_armas.setText("BATarmas");
+        btn_armas.setActionCommand("armas");
+        btn_armas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btn_armasActionPerformed(evt);
             }
         });
 
-        jButton2.setText("BATrajes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btn_trajes.setText("BATrajes");
+        btn_trajes.setActionCommand("trajes");
+        btn_trajes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btn_trajesActionPerformed(evt);
             }
         });
 
@@ -116,8 +154,8 @@ public class ViewInicio extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btn_armas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btn_trajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addComponent(jLabel5)))
@@ -129,9 +167,9 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addGap(6, 6, 6)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btn_armas)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btn_trajes)
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -200,18 +238,20 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addContainerGap(21, Short.MAX_VALUE))
         );
 
-        jButton5.setBackground(new java.awt.Color(204, 0, 0));
-        jButton5.setForeground(new java.awt.Color(204, 0, 51));
-        jButton5.setText("SAIR DA CAVERNA");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btn_sair.setBackground(new java.awt.Color(204, 0, 0));
+        btn_sair.setForeground(new java.awt.Color(204, 0, 51));
+        btn_sair.setText("SAIR DA CAVERNA");
+        btn_sair.setActionCommand("sair");
+        btn_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btn_sairActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 0, 102));
-        jButton4.setForeground(new java.awt.Color(0, 0, 102));
-        jButton4.setText("CHAMAR BATMÓVEL PARA MISSÂO");
+        btn_batmovel.setBackground(new java.awt.Color(0, 0, 102));
+        btn_batmovel.setForeground(new java.awt.Color(0, 0, 102));
+        btn_batmovel.setText("CHAMAR BATMÓVEL PARA MISSÂO");
+        btn_batmovel.setActionCommand("batmovel");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -221,9 +261,9 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
+                        .addComponent(btn_batmovel, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
                         .addGap(24, 24, 24)
-                        .addComponent(jButton5))
+                        .addComponent(btn_sair))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -238,8 +278,8 @@ public class ViewInicio extends javax.swing.JFrame {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5))
+                    .addComponent(btn_batmovel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_sair))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -257,17 +297,17 @@ public class ViewInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_armasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_armasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_armasActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btn_trajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trajesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btn_trajesActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btn_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,10 +352,10 @@ public class ViewInicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton btn_armas;
+    private javax.swing.JButton btn_batmovel;
+    private javax.swing.JButton btn_sair;
+    private javax.swing.JButton btn_trajes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

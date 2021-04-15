@@ -10,5 +10,7 @@ public class ControlTraje {
         this.viewTraje = new ViewTraje();
         this.viewTraje.setVisible(true);
         viewTraje.setLocationRelativeTo(null);
+        
     }
+    
 }
