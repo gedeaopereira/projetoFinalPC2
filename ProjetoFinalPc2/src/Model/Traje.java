@@ -3,54 +3,18 @@ package Model;
 import java.util.ArrayList;
 
 public class Traje {
-    private String equip;
-    private String membro;
-    private ArrayList<Armas> armas;
+    private ArrayList<Equipamento> equipamentos;
     
-    public Traje(String equip, String membro) {
-        this.equip = equip;
-        this.membro = membro;
-        this.armas = new ArrayList<>();
-    }
-    
-    public Traje (String equip, String membro, ArrayList<Armas> armas) {
-        this.equip = equip;
-        this.membro = membro;
-        this.armas = armas;
-    }
-    
-    public void adicionarArmas(Armas arma) {
-        this.armas.add(arma);
+  public Traje(ArrayList<Equipamento> equipamentos){
+      this.equipamentos = equipamentos;
+  }   
+
+    public ArrayList<Equipamento> getEquipamentos() {
+        return equipamentos;
     }
 
-    public void removerArmas(Armas arma) {
-        for(Armas a: this.armas){
-            if(a.getNome().equals(arma.getNome()))
-                this.armas.remove(a); 
-        }
+    public void setEquipamentos(ArrayList<Equipamento> equipamentos) {
+        this.equipamentos = equipamentos;
     }
-    
-    public String getEquip() {
-        return equip;
-    }
-
-    public void setEquip(String equip) {
-        this.equip = equip;
-    }
-
-    public String getMembro() {
-        return membro;
-    }
-
-    public void setMembro(String membro) {
-        this.membro = membro;
-    }
-
-    public  ArrayList<Armas> getArmas() {
-        return armas;
-    }
-
-    public void setArmas( ArrayList<Armas> armas) {
-        this.armas = armas;
-    }
+  
 }
