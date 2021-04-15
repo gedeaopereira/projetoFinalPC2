@@ -13,18 +13,20 @@ import javax.swing.JList;
 public class ControlArmas implements ActionListener {
 
     private ViewArmas viewArmas;
+    private DefaultListModel listArmas;
+    private DefaultListModel listAcessorios;
 
     public ControlArmas() throws IOException {
         this.viewArmas = new ViewArmas();
         this.viewArmas.setVisible(true);
         ArmasDAO armasDAO = new ArmasDAO();
-        ArrayList<String> armas = new ArrayList<>();
+        listArmas = new DefaultListModel();
+        listAcessorios = new DefaultListModel();
         for (Armas arma : armasDAO.ler()) {
-            armas.add(arma.getNome());
+            listArmas.addElement(arma.getNome());
         }
-        DefaultListModel listModel = new DefaultListModel();
-        listModel.addElement(armas);
-        this.viewArmas.getList_armas().setModel(listModel);
+        this.viewArmas.getList_armas().setModel(listArmas);
+        this.viewArmas.getList_acessorios().setModel(listAcessorios);
         viewArmas.setLocationRelativeTo(null);
         viewArmas.getBtn_adicionarAcessorio().addActionListener(this);
         viewArmas.getBtn_buscar().addActionListener(this);
@@ -38,8 +40,7 @@ public class ControlArmas implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if ("adicionarAcessorio".equals(e.getActionCommand())) {
-            ControlTraje controlTraje = new ControlTraje();
-            this.viewArmas.dispose();
+
         } else if ("buscar".equals(e.getActionCommand())) {
             ControlArmas controlArmas = new ControlArmas();
             this.viewArmas.dispose();
@@ -47,11 +48,14 @@ public class ControlArmas implements ActionListener {
             ControlArmas controlArmas = new ControlArmas();
             this.viewArmas.dispose();
         } else if ("novo".equals(e.getActionCommand())) {
-            ControlArmas controlArmas = new ControlArmas();
-            this.viewArmas.dispose();
+            this.viewArmas.getTxt_equipamentoArma().setText("");
+            this.viewArmas.getTxt_nomeArma().setText("");
+            this.listAcessorios.clear();
         } else if ("excluirArma".equals(e.getActionCommand())) {
-            ControlArmas controlArmas = new ControlArmas();
-            this.viewArmas.dispose();
+            ArmasDAO armasDAO = new ArmasDAO();
+            Armas armas = new Armas(this.viewArmas.getList_armas().getName());
+            armasDAO.deleta(armas);
+            listArmas.remove(this.viewArmas.getList_armas().getSelectedIndex());
         } else if ("salvar".equals(e.getActionCommand())) {
             viewArmas.dispose();
             System.exit(0);

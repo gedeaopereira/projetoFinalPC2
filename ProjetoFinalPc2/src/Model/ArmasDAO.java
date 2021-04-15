@@ -130,7 +130,7 @@ public class ArmasDAO {
         int nContatos = 0;
         try {
             ArrayList<Armas> armasOld = ler();
-            FileWriter arq = new FileWriter(CAMINHO);
+            FileWriter arq = new FileWriter(CAMINHO, false);
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {
                 if (!(arma.getNome().equals(armaAtu.getNome()))) {
@@ -169,7 +169,7 @@ public class ArmasDAO {
         int nContatos = 0;
         try {
             ArrayList<Armas> armasOld = ler();
-            FileWriter arq = new FileWriter(CAMINHO);
+            FileWriter arq = new FileWriter(CAMINHO, false);
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {
                 if (!(arma.getNome().equals(armaDel.getNome()))) {
