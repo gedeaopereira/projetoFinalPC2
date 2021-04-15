@@ -121,7 +121,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="btn_excluirArma" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="txt_editar" min="-2" max="-2" attributes="0"/>
+                                      <Component id="Btn_editar" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btn_novo" min="-2" pref="65" max="-2" attributes="0"/>
                                   </Group>
@@ -185,7 +185,7 @@
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btn_excluirArma" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btn_novo" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_editar" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="Btn_editar" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -332,12 +332,13 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="txt_editar">
+            <Component class="javax.swing.JButton" name="Btn_editar">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Tahoma" size="11" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Editar"/>
+                <Property name="actionCommand" type="java.lang.String" value="editar"/>
               </Properties>
             </Component>
           </SubComponents>

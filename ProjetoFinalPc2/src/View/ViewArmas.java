@@ -117,6 +117,14 @@ public class ViewArmas extends javax.swing.JFrame {
     public void setTxt_nomeArma(JTextField txt_nomeArma) {
         this.txt_nomeArma = txt_nomeArma;
     }
+
+    public JButton getBtn_editar() {
+        return Btn_editar;
+    }
+
+    public void setBtn_editar(JButton Btn_editar) {
+        this.Btn_editar = Btn_editar;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -147,7 +155,7 @@ public class ViewArmas extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txt_editar = new javax.swing.JButton();
+        Btn_editar = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -205,8 +213,9 @@ public class ViewArmas extends javax.swing.JFrame {
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/BATarangue (1).png"))); // NOI18N
 
-        txt_editar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        txt_editar.setText("Editar");
+        Btn_editar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Btn_editar.setText("Editar");
+        Btn_editar.setActionCommand("editar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -242,7 +251,7 @@ public class ViewArmas extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btn_excluirArma)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txt_editar)
+                                .addComponent(Btn_editar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btn_novo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(16, 16, 16))
@@ -292,7 +301,7 @@ public class ViewArmas extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_excluirArma)
                             .addComponent(btn_novo)
-                            .addComponent(txt_editar))
+                            .addComponent(Btn_editar))
                         .addContainerGap())))
         );
 
@@ -384,6 +393,7 @@ public class ViewArmas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_editar;
     private javax.swing.JButton btn_adicionarAcessorio;
     private javax.swing.JButton btn_buscar;
     private javax.swing.JButton btn_excluirAcessorio;
@@ -403,7 +413,6 @@ public class ViewArmas extends javax.swing.JFrame {
     private javax.swing.JList<String> list_acessorios;
     private javax.swing.JList<String> list_armas;
     private javax.swing.JTextField txt_buscar;
-    private javax.swing.JButton txt_editar;
     private javax.swing.JTextField txt_equipamentoArma;
     private javax.swing.JTextField txt_nomeArma;
     // End of variables declaration//GEN-END:variables

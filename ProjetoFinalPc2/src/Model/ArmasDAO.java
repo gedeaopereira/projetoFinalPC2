@@ -126,10 +126,10 @@ public class ArmasDAO {
 
     }
 
-    public String atualiza(Armas armaAtu) {
+    public String atualiza(Armas armaAtu,String nomeOld) {
         int nContatos = 0;
         try {
-            ArrayList<Armas> armasOld = ler();
+            ArrayList<Armas> armasOld = ler(nomeOld);
             FileWriter arq = new FileWriter(CAMINHO, false);
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {

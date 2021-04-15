@@ -17,6 +17,7 @@ public class ControlArmas implements ActionListener {
     private ViewArmas viewArmas;
     private DefaultListModel listArmas;
     private DefaultListModel listAcessorios;
+    private String Atualizar;
 
     public ControlArmas() throws IOException {
         this.viewArmas = new ViewArmas();
@@ -37,6 +38,7 @@ public class ControlArmas implements ActionListener {
         viewArmas.getBtn_excluirArma().addActionListener(this);
         viewArmas.getBtn_salvar().addActionListener(this);
         viewArmas.getBtn_voltar().addActionListener(this);
+        viewArmas.getBtn_editar().addActionListener(this);
     }
 
     @Override
@@ -46,6 +48,7 @@ public class ControlArmas implements ActionListener {
         } else if ("buscar".equals(e.getActionCommand())) {
 
             ArmasDAO armasDAO = new ArmasDAO();
+            listArmas.clear();
             try {
                 for (Armas arma : armasDAO.ler(this.viewArmas.getTxt_buscar().getText())) {
                     listArmas.addElement(arma.getNome());
@@ -55,8 +58,7 @@ public class ControlArmas implements ActionListener {
             }
 
         } else if ("excluirAcessorio".equals(e.getActionCommand())) {
-
-            this.viewArmas.dispose();
+            listAcessorios.remove(this.viewArmas.getList_acessorios().getSelectedIndex());
         } else if ("novo".equals(e.getActionCommand())) {
 
             this.viewArmas.getTxt_equipamentoArma().setText("");
@@ -65,10 +67,29 @@ public class ControlArmas implements ActionListener {
             this.viewArmas.getBtn_salvar().setText("Cadastrar");
             this.listAcessorios.clear();
 
+        } else if ("editar".equals(e.getActionCommand())) {
+
+            ArmasDAO armasDAO = new ArmasDAO();
+            listAcessorios.clear();
+            try {
+                Atualizar = listArmas.get(this.viewArmas.getList_armas().getSelectedIndex()).toString();
+                ArrayList<Armas> arma = armasDAO.ler(Atualizar);
+                this.viewArmas.getTxt_equipamentoArma().setText("");
+                this.viewArmas.getTxt_nomeArma().setText(arma.get(0).getNome());
+                this.viewArmas.getBtn_salvar().setActionCommand("salva");
+                this.viewArmas.getBtn_salvar().setText("Salva");
+                this.listAcessorios.clear();
+                for (String acessorio : arma.get(0).getAcessorios()) {
+                    this.listAcessorios.addElement(acessorio);
+                }
+            } catch (IOException ex) {
+                System.out.println("Erro ao caregar arquivo");
+            }
+
         } else if ("excluirArma".equals(e.getActionCommand())) {
 
             ArmasDAO armasDAO = new ArmasDAO();
-            Armas armas = new Armas(this.viewArmas.getList_armas().getName());
+            Armas armas = new Armas(listArmas.get(this.viewArmas.getList_armas().getSelectedIndex()).toString());
             armasDAO.deleta(armas);
             listArmas.remove(this.viewArmas.getList_armas().getSelectedIndex());
 
@@ -102,12 +123,19 @@ public class ControlArmas implements ActionListener {
                     acessorios.add(listAcessorios.get(i).toString());
                 }
                 Armas armas = new Armas(this.viewArmas.getTxt_nomeArma().getText(), acessorios);
-                armasDAO.atualiza(armas);
+                armasDAO.atualiza(armas, Atualizar);
             } else {
                 Armas armas = new Armas(this.viewArmas.getTxt_nomeArma().getText());
-                armasDAO.atualiza(armas);
+                armasDAO.atualiza(armas, Atualizar);
             }
             listArmas.clear();;
+            try {
+                for (Armas arma : armasDAO.ler()) {
+                    listArmas.addElement(arma.getNome());
+                }
+            } catch (IOException ex) {
+                System.out.println("Erro ao caregar arquivo");
+            }
 
         } else if ("voltar".equals(e.getActionCommand())) {
 

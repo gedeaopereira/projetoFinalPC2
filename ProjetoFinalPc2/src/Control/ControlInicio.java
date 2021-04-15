@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.JOptionPane;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -34,7 +37,11 @@ public class ControlInicio implements ActionListener {
             ControlTraje controlTraje = new ControlTraje();
             this.viewInicio.dispose();
         } else if ("armas".equals(e.getActionCommand())) {
-            // ControlArmas controlArmas = new ControlArmas();
+            try {
+                ControlArmas controlArmas = new ControlArmas();
+            } catch (IOException ex) {
+                System.out.println("Erro ao caregar arquivo");
+            }
             this.viewInicio.dispose();
         } else if ("batmovel".equals(e.getActionCommand())) {
             try {
