@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 public class ArmasDAO {
 
     private final String CAMINHO = "Armas";
-    
-    public ArmasDAO(){
+
+    public ArmasDAO() {
         try {
             FileWriter arq = new FileWriter(CAMINHO, true);
         } catch (IOException ex) {
@@ -33,14 +33,18 @@ public class ArmasDAO {
                 while (linha != null) {
                     ArrayList<String> acessorios = new ArrayList<>();
                     for (String nome : linha.split(" nome: ")) {
-                        for (String acessorio : nome.split(" acessorio: ")) {
-                            acessorios.add(acessorio);
+                        if (!nome.equals("")) {
+                            for (String acessorio : nome.split(" acessorio: ")) {
+                                if (!acessorio.equals("")) {
+                                    acessorios.add(acessorio);
+                                }
+                            }
+                            if (nome.contains(" acessorio: ")) {
+                                nome = nome.substring(0, nome.indexOf(" acessorio: "));
+                            }
+                            Armas arma = new Armas(nome, acessorios);
+                            armas.add(arma);
                         }
-                        if (nome.contains(" acessorio: ")) {
-                            nome = nome.substring(0, nome.indexOf(" acessorio: "));
-                        }
-                        Armas arma = new Armas(nome, acessorios);
-                        armas.add(arma);
                     }
                     linha = lerArq.readLine();
                 }
@@ -66,18 +70,22 @@ public class ArmasDAO {
                 while (linha != null) {
                     ArrayList<String> acessorios = new ArrayList<>();
                     for (String nome : linha.split(" nome: ")) {
-                        for (String acessorio : nome.split(" acessorio: ")) {
-                            acessorios.add(acessorio);
-                        }
-                        if (nome.contains(" acessorio: ")) {
-                            nome = nome.substring(0, nome.indexOf(" acessorio: "));
-                            if (nome.contains(busca)) {
+                        if (!nome.equals("")) {
+                            for (String acessorio : nome.split(" acessorio: ")) {
+                                if (!acessorio.equals("")) {
+                                    acessorios.add(acessorio);
+                                }
+                            }
+                            if (nome.contains(" acessorio: ")) {
+                                nome = nome.substring(0, nome.indexOf(" acessorio: "));
+                                if (nome.contains(busca)) {
+                                    Armas arma = new Armas(nome, acessorios);
+                                    armas.add(arma);
+                                }
+                            } else if (nome.contains(busca)) {
                                 Armas arma = new Armas(nome, acessorios);
                                 armas.add(arma);
                             }
-                        } else if (nome.contains(busca))  {
-                            Armas arma = new Armas(nome, acessorios);
-                            armas.add(arma);
                         }
 
                     }

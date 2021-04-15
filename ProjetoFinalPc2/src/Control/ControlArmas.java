@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
 import javax.swing.JList;
 
 public class ControlArmas implements ActionListener {
@@ -21,8 +22,9 @@ public class ControlArmas implements ActionListener {
         for (Armas arma : armasDAO.ler()) {
             armas.add(arma.getNome());
         }
-        JList list = new JList(armas.toArray());
-        this.viewArmas.getList_armas().add(list);
+        DefaultListModel listModel = new DefaultListModel();
+        listModel.addElement(armas);
+        this.viewArmas.getList_armas().setModel(listModel);
         viewArmas.setLocationRelativeTo(null);
         viewArmas.getBtn_adicionarAcessorio().addActionListener(this);
         viewArmas.getBtn_buscar().addActionListener(this);
