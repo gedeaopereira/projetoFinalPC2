@@ -1,3 +1,8 @@
+/**
+ *
+ * @author Matheus Shimizu, Vinicius Paiva, Gedeão Pereira Lima
+ * 
+ */
 package Control;
 
 import View.ViewEntrar;
