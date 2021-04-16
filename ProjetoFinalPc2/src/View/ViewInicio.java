@@ -21,15 +21,6 @@ public class ViewInicio extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JButton getBtn_trajes() {
-        return btn_trajes;
-    }
-
-    public void setBtn_trajes(JButton btn_trajes) {
-        this.btn_trajes = btn_trajes;
-    }
-
-
     public JButton getBtn_armas() {
         return btn_armas;
     }
@@ -80,8 +71,6 @@ public class ViewInicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         btn_armas = new javax.swing.JButton();
-        btn_trajes = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         txt_alerta = new javax.swing.JLabel();
@@ -143,43 +132,21 @@ public class ViewInicio extends javax.swing.JFrame {
             }
         });
 
-        btn_trajes.setText("BATrajes");
-        btn_trajes.setActionCommand("trajes");
-        btn_trajes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_trajesActionPerformed(evt);
-            }
-        });
-
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("O que você deseja verificar?");
-
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btn_armas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btn_trajes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(jLabel5)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(btn_armas, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_armas)
-                .addGap(18, 18, 18)
-                .addComponent(btn_trajes)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btn_armas, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -309,10 +276,6 @@ public class ViewInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_armasActionPerformed
 
-    private void btn_trajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_trajesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_trajesActionPerformed
-
     private void btn_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sairActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_sairActionPerformed
@@ -363,12 +326,10 @@ public class ViewInicio extends javax.swing.JFrame {
     private javax.swing.JButton btn_armas;
     private javax.swing.JButton btn_batmovel;
     private javax.swing.JButton btn_sair;
-    private javax.swing.JButton btn_trajes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
