@@ -8,8 +8,6 @@ import java.util.Random;
 import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -23,7 +21,6 @@ public class ControlInicio implements ActionListener {
         this.viewInicio = new ViewInicio();
         this.viewInicio.setVisible(true);
         this.viewInicio.setLocationRelativeTo(null);
-        this.viewInicio.getBtn_trajes().addActionListener(this);
         this.viewInicio.getBtn_armas().addActionListener(this);
         this.viewInicio.getBtn_batmovel().addActionListener(this);
         this.viewInicio.getBtn_sair().addActionListener(this);
@@ -33,10 +30,7 @@ public class ControlInicio implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("trajes".equals(e.getActionCommand())) {
-            ControlTraje controlTraje = new ControlTraje();
-            this.viewInicio.dispose();
-        } else if ("armas".equals(e.getActionCommand())) {
+        if ("armas".equals(e.getActionCommand())) {
             try {
                 ControlArmas controlArmas = new ControlArmas();
             } catch (IOException ex) {
