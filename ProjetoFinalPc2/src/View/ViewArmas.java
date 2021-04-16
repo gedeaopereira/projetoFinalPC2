@@ -20,7 +20,6 @@ public class ViewArmas extends javax.swing.JFrame {
      */
     public ViewArmas() {
         initComponents();
-        this.setResizable(false);
     }
 
     public JButton getBtn_adicionarAcessorio() {
