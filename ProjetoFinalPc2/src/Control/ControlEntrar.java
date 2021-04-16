@@ -20,21 +20,25 @@ public class ControlEntrar implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("entrar".equals(e.getActionCommand())) {
-            String chave = this.viewEntrar.getTxt_chave().getText();
-            if (chave.length() > 0) {
-                if (chave.equals("curinga123")) {             
-                    ControlInicio controlInicio = new ControlInicio();
-                    this.viewEntrar.dispose();
+        if (null != e.getActionCommand()) switch (e.getActionCommand()) {
+            case "entrar":
+                String chave = this.viewEntrar.getTxt_chave().getText();
+                if (chave.length() > 0) {
+                    if (chave.equals("curinga123")) {
+                        ControlInicio controlInicio = new ControlInicio();
+                        this.viewEntrar.dispose();
+                    } else {
+                        JOptionPane.showMessageDialog(viewEntrar, "Senha Incorreta!!!");
+                    }
                 } else {
-                    JOptionPane.showMessageDialog(viewEntrar, "Senha Incorreta!!!");
-                }
-            } else {
-                JOptionPane.showMessageDialog(viewEntrar, "Digite uma senha!!");
-            }
-        } else if ("sair".equals(e.getActionCommand())) {
-            viewEntrar.dispose();
-            System.exit(0);
+                    JOptionPane.showMessageDialog(viewEntrar, "Digite uma senha!!");
+                }   break;
+            case "sair":
+                viewEntrar.dispose();
+                System.exit(0);
+                break;
+            default:
+                break;
         }
     }
 }

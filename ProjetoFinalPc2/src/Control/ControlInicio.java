@@ -30,32 +30,35 @@ public class ControlInicio implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if ("armas".equals(e.getActionCommand())) {
-            try {
-                ControlArmas controlArmas = new ControlArmas();
-            } catch (IOException ex) {
-                System.out.println("Erro ao caregar arquivo");
-            }
-            this.viewInicio.dispose();
-        } else if ("batmovel".equals(e.getActionCommand())) {
-            try {
-                AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sons/batmovel.wav").getAbsoluteFile());
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInputStream);
-                clip.start();
-            } catch (Exception ex) {
-                System.out.println("Erro ao executar SOM!" + ex);
-            }
-            JOptionPane.showMessageDialog(viewInicio, "O batmóvel está pronto para ação!!");
-        } else if ("sair".equals(e.getActionCommand())) {
-            viewInicio.dispose();
-            System.exit(0);
+        if (null != e.getActionCommand()) switch (e.getActionCommand()) {
+            case "armas":
+                try {
+                    ControlArmas controlArmas = new ControlArmas();
+                } catch (IOException ex) {
+                    System.out.println("Erro ao caregar arquivo");
+                }   this.viewInicio.dispose();
+                break;
+            case "batmovel":
+                try {
+                    AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(new File("src/Sons/batmovel.wav").getAbsoluteFile());
+                    Clip clip = AudioSystem.getClip();
+                    clip.open(audioInputStream);
+                    clip.start();
+                } catch (Exception ex) {
+                    System.out.println("Erro ao executar SOM!" + ex);
+                }   JOptionPane.showMessageDialog(viewInicio, "O batmóvel está pronto para ação!!");
+                break;
+            case "sair":
+                viewInicio.dispose();
+                System.exit(0);
+            default:
+                break;
         }
     }
 
     private void adicionarCrimes() {
         Random gerador = new Random();
-        int aleatorio = gerador.nextInt(13);
+        int aleatorio = gerador.nextInt(12);
 
         this.crimes.add("O Coringa sequestrou dois navios, e está ameaçando explodir");
         this.crimes.add("O Espantalho criou um novo gás tóxico");
