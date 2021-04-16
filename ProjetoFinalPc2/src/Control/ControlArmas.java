@@ -45,6 +45,7 @@ public class ControlArmas implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if ("adicionarAcessorio".equals(e.getActionCommand())) {
             listAcessorios.addElement(viewArmas.getTxt_equipamentoArma().getText());
+            viewArmas.getTxt_equipamentoArma().setText("");
         } else if ("buscar".equals(e.getActionCommand())) {
 
             ArmasDAO armasDAO = new ArmasDAO();

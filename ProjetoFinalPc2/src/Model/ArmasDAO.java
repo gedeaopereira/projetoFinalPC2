@@ -34,10 +34,12 @@ public class ArmasDAO {
                     ArrayList<String> acessorios = new ArrayList<>();
                     for (String nome : linha.split(" nome: ")) {
                         if (!nome.equals("")) {
+                            boolean teste = false;
                             for (String acessorio : nome.split(" acessorio: ")) {
-                                if (!acessorio.equals("")) {
+                                if (teste) {
                                     acessorios.add(acessorio);
                                 }
+                                teste = true;
                             }
                             if (nome.contains(" acessorio: ")) {
                                 nome = nome.substring(0, nome.indexOf(" acessorio: "));
@@ -71,10 +73,12 @@ public class ArmasDAO {
                     ArrayList<String> acessorios = new ArrayList<>();
                     for (String nome : linha.split(" nome: ")) {
                         if (!nome.equals("")) {
+                            boolean teste = false;
                             for (String acessorio : nome.split(" acessorio: ")) {
-                                if (!acessorio.equals("")) {
+                                if (teste) {
                                     acessorios.add(acessorio);
                                 }
+                                teste = true;
                             }
                             if (nome.contains(" acessorio: ")) {
                                 nome = nome.substring(0, nome.indexOf(" acessorio: "));
@@ -126,14 +130,14 @@ public class ArmasDAO {
 
     }
 
-    public String atualiza(Armas armaAtu,String nomeOld) {
+    public String atualiza(Armas armaAtu, String nomeOld) {
         int nContatos = 0;
         try {
-            ArrayList<Armas> armasOld = ler(nomeOld);
+            ArrayList<Armas> armasOld = ler();
             FileWriter arq = new FileWriter(CAMINHO, false);
             PrintWriter gravarArq = new PrintWriter(arq);
             for (Armas arma : armasOld) {
-                if (!(arma.getNome().equals(armaAtu.getNome()))) {
+                if (!(arma.getNome().equals(nomeOld))) {
                     String Texto = " nome: " + arma.getNome();
                     if (arma.getAcessorios().size() > 0) {
                         for (String acessorio : arma.getAcessorios()) {
